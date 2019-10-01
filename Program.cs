@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace weatherstation
 {
@@ -135,7 +136,7 @@ namespace weatherstation
                 Console.WriteLine("Ange temperatur för {0}", choice);
                 double temp = Convert.ToDouble(Console.ReadLine());
                 temperatur.Add(temp);
-                stadtemp.Add(choice + " " +temp);
+                stadtemp.Add(choice + " " + temp);
                 Console.WriteLine("Lägg till ny temperatur? Mata in [J]");
                 Console.WriteLine("Annars gå tillbaka till menyn..");
                 string val2 = Console.ReadLine().ToUpper();
@@ -169,12 +170,20 @@ namespace weatherstation
         }
         public static void Remove()
         {
-
+            Console.WriteLine("Vilken temperatur vill du ta bort?");
+            foreach(string temp1 in stadtemp)
+            {
+                Console.WriteLine(temp1);
+            }
         }
         public static void medelvärde()
         {
-            Console.WriteLine("Medelvärdet för alla städer i listan är: ");
-            Console.Write("");
+            if (temperatur.Count > 0)
+            {
+                double average = temperatur.Average();
+                Console.WriteLine("Medelvärdet för alla städer i listan är: ");
+                Console.WriteLine(average);
+            }
         }
     }
 }
