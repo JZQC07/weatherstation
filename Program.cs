@@ -11,7 +11,6 @@ namespace weatherstation
             {
                 Console.WriteLine("Välkommen till väderstationen!");
                 Console.WriteLine("Välj vad du vill göra.");
-
                 Console.WriteLine("[L]ägg till temperaturmätning");
                 Console.WriteLine("[S]kriv ut alla temperaturer");
                 Console.WriteLine("[T]a bort temperaturmätning");
