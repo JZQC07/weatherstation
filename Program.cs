@@ -14,6 +14,7 @@ namespace weatherstation
                 Console.WriteLine("[L]ägg till temperaturmätning");
                 Console.WriteLine("[S]kriv ut alla temperaturer");
                 Console.WriteLine("[T]a bort temperaturmätning");
+                Console.WriteLine("[B]eräkna medeltemperatur för alla städer");
                 Console.WriteLine("[A]vsluta");
 
                 string menyval = Console.ReadLine().ToUpper();
@@ -32,6 +33,11 @@ namespace weatherstation
                     case "T":
                         Console.Clear();
                         City.Remove();
+                        break;
+
+                    case "B":
+                        Console.Clear();
+                        City.medelvärde();
                         break;
 
                     case "A":
@@ -57,7 +63,7 @@ namespace weatherstation
     public class City
     {
         public static List<string> stader = new List<string>();
-        public static List<int> temperatur = new List<int>();
+        public static List<double> temperatur = new List<double>();
         public static List<string> stadtemp = new List<string>();
         public static void Stader()
         {
@@ -67,7 +73,7 @@ namespace weatherstation
 
         public City() //Konstruktor
         {
-            
+
         }
         public static void Add_temperature() //Lägger till temperaturen för den specifika staden
         {
@@ -128,6 +134,7 @@ namespace weatherstation
                 Console.WriteLine("Du valde: " + choice);
                 Console.WriteLine("Ange temperatur för {0}", choice);
                 double temp = Convert.ToDouble(Console.ReadLine());
+                temperatur.Add(temp);
                 stadtemp.Add(choice + " " +temp);
                 Console.WriteLine("Lägg till ny temperatur? Mata in [J]");
                 Console.WriteLine("Annars gå tillbaka till menyn..");
@@ -166,7 +173,8 @@ namespace weatherstation
         }
         public static void medelvärde()
         {
-
+            Console.WriteLine("Medelvärdet för alla städer i listan är: ");
+            Console.Write("");
         }
     }
 }
