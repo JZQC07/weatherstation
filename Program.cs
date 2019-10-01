@@ -58,19 +58,16 @@ namespace weatherstation
     {
         public static List<string> stader = new List<string>();
         public static List<int> temperatur = new List<int>();
+        public static List<string> stadtemp = new List<string>();
         public static void Stader()
         {
             stader.Add("Stockholm"); stader.Add("Madrid"); stader.Add("Köpenhamn"); stader.Add("Oslo"); stader.Add("Rom");
             stader.Add("Amsterdam"); stader.Add("London"); stader.Add("Washington DC"); stader.Add("Helsinfgors");
         }
-        
+
         public City() //Konstruktor
         {
-
-        }
-        public static void Names() //Lägger till valfria namn för städer i listan
-        {
-
+            
         }
         public static void Add_temperature() //Lägger till temperaturen för den specifika staden
         {
@@ -83,13 +80,10 @@ namespace weatherstation
                 if (stadsval == "1")
                 {
                     Stadslista();
-                    
                 }
                 else if (stadsval == "2")
                 {
-                    
                     Add_city();
-                    
                 }
                 else
                 {
@@ -129,25 +123,35 @@ namespace weatherstation
                 Console.WriteLine(i + 1 + " " + stader[i]);
             }
             string choice = Console.ReadLine();
-            for (int i = 0; i < stader.Count; i++)
+            if (stader.Contains(choice))
             {
-                if (choice == stader[i])
+                Console.WriteLine("Du valde: " + choice);
+                Console.WriteLine("Ange temperatur för {0}", choice);
+                double temp = Convert.ToDouble(Console.ReadLine());
+                stadtemp.Add(choice + " " +temp);
+                Console.WriteLine("Lägg till ny temperatur? Mata in [J]");
+                Console.WriteLine("Annars gå tillbaka till menyn..");
+                string val2 = Console.ReadLine().ToUpper();
+                if (val2 == "J")
                 {
-                    Console.WriteLine("Du valde: " +choice);
+                    Stadslista();
                 }
                 else
                 {
-                    Console.WriteLine("Staden finns inte med i listan!");
-                    Console.WriteLine("Tryck valfri tangent för att försöka igen.");
-                    Console.ReadKey();
-                    Stadslista();
+                    Program.Menu();
                 }
-            } 
-
+            }
+            else
+            {
+                Console.WriteLine("Staden finns inte med i listan!");
+                Console.WriteLine("Tryck valfri tangent för att försöka igen.");
+                Console.ReadKey();
+                Stadslista();
+            }
         }
         public static void Print()
         {
-            foreach (string i in stader)
+            foreach (string i in stadtemp)
             {
                 Console.WriteLine(i);
             }
@@ -157,6 +161,10 @@ namespace weatherstation
             Program.Menu();
         }
         public static void Remove()
+        {
+
+        }
+        public static void medelvärde()
         {
 
         }
