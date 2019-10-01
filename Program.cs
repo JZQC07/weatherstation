@@ -20,24 +20,29 @@ namespace weatherstation
                 switch (menyval)
                 {
                     case "L":
+                        Console.Clear();
                         City.Add_temperature();
                         break;
 
                     case "S":
+                        Console.Clear();
                         City.Print();
                         break;
 
                     case "T":
+                        Console.Clear();
                         City.Remove();
                         break;
 
                     case "A":
+                        Console.Clear();
                         Console.WriteLine("Tryck valfri tangent för att avsluta programmet...");
                         Console.ReadKey();
                         Environment.Exit(0);
                         break;
 
                     default:
+                        Console.Clear();
                         Console.WriteLine("Du gjorde en konstig inmatning? Prova igen!");
                         break;
                 }
@@ -45,12 +50,19 @@ namespace weatherstation
         }
         public static void Main(string[] args)
         {
+            City.Stader();
             Menu();
         }
     }
     public class City
     {
         public static List<string> stader = new List<string>();
+        public static List<int> temperatur = new List<int>();
+        public static void Stader()
+        {
+            stader.Add("Stockholm"); stader.Add("Madrid"); stader.Add("Köpenhamn"); stader.Add("Oslo"); stader.Add("Rom");
+            stader.Add("Amsterdam"); stader.Add("London"); stader.Add("Washington DC"); stader.Add("Helsinfgors");
+        }
         
         public City() //Konstruktor
         {
@@ -71,10 +83,13 @@ namespace weatherstation
                 if (stadsval == "1")
                 {
                     Stadslista();
+                    
                 }
                 else if (stadsval == "2")
                 {
+                    
                     Add_city();
+                    
                 }
                 else
                 {
@@ -88,7 +103,7 @@ namespace weatherstation
             {
                 Console.WriteLine("Mata in namn på staden du vill lägga till.");
                 stader.Add(Console.ReadLine());
-                Console.WriteLine("Lägg till en ny stad? Eller gå tillbaka till meny?");
+                Console.WriteLine("Lägg till en ny stad? Eller gå tillbaka till menyn?");
                 Console.WriteLine("[L] / [M] ?");
                 string val = Console.ReadLine().ToUpper();
                 if (val == "L")
@@ -107,13 +122,11 @@ namespace weatherstation
         }
         public static void Stadslista()
         {
-            stader.Add("Stockholm"); stader.Add("Madrid"); stader.Add("Köpenhamn"); stader.Add("Oslo"); stader.Add("Rom");
-            stader.Add("Amsterdam"); stader.Add("London"); stader.Add("Washington DC"); stader.Add("Helsinfgors");
-            foreach (string i in stader)
-            {
-                Console.WriteLine(i);
-            }
             Console.WriteLine("Vilken stad vill du lägga till temperatur för?");
+            for (int i = 0; i < stader.Count; i++)
+            {
+                Console.WriteLine(i + 1 + " " + stader[i]);
+            }
 
         }
         public static void Print()
