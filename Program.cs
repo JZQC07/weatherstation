@@ -43,7 +43,6 @@ namespace weatherstation
                         break;
                 }
             }
-
         }
         public static void Main(string[] args)
         {
@@ -83,7 +82,6 @@ namespace weatherstation
                     Console.WriteLine("Fel inmatning! Välj mellan [1] eller [2]!");
                 }
             }
-
         }
         public static void Add_city()
         {
