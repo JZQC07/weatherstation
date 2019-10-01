@@ -180,7 +180,7 @@ namespace weatherstation
         {
             if (temperatur.Count > 0)
             {
-                double average = temperatur.Average();
+                double average = temperatur.Average(); //.Average tar medelvärdet
                 Console.WriteLine("Medelvärdet för alla städer i listan är: ");
                 Console.WriteLine(average);
             }
