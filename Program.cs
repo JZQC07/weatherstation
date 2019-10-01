@@ -171,10 +171,13 @@ namespace weatherstation
         public static void Remove()
         {
             Console.WriteLine("Vilken temperatur vill du ta bort?");
-            foreach(string temp1 in stadtemp)
+            for (int i = 0; i < stadtemp.Count; i++)
             {
-                Console.WriteLine(temp1);
+                Console.WriteLine(i + 1 + " " + stadtemp[i]);
+                int tabort = Convert.ToInt32(Console.ReadLine());
+                stadtemp.RemoveAt(tabort);
             }
+            
         }
         public static void medelvärde()
         {
