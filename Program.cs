@@ -123,7 +123,7 @@ namespace weatherstation
         public static void Stadslista()
         {
             Console.WriteLine("Vilken stad vill du lägga till temperatur för?");
-            Console.WriteLine("Skriv namnet exakt som det i listan.");
+            Console.WriteLine("Skriv namnet exakt som det i listan!");
             for (int i = 0; i < stader.Count; i++)
             {
                 Console.WriteLine(i + 1 + " " + stader[i]);
