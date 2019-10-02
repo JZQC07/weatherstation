@@ -71,7 +71,6 @@ namespace weatherstation
             stader.Add("Stockholm"); stader.Add("Madrid"); stader.Add("Köpenhamn"); stader.Add("Oslo"); stader.Add("Rom");
             stader.Add("Amsterdam"); stader.Add("London"); stader.Add("Washington DC"); stader.Add("Helsinfgors");
         }
-
         public City() //Konstruktor
         {
 
@@ -135,8 +134,8 @@ namespace weatherstation
                 Console.WriteLine("Du valde: " + choice);
                 Console.WriteLine("Ange temperatur för {0}", choice);
                 double temp = Convert.ToDouble(Console.ReadLine());
-                temperatur.Add(temp);
-                stadtemp.Add(choice + " " + temp);
+                temperatur.Add(temp); //Lägger temperaturen i listan temperatur
+                stadtemp.Add(choice + " " + temp);  //Lägger staden och temperaturen för staden i listan stadtemp
                 Console.WriteLine("Lägg till ny temperatur? Mata in [J]");
                 Console.WriteLine("Annars gå tillbaka till menyn..");
                 string val2 = Console.ReadLine().ToUpper();
@@ -175,15 +174,14 @@ namespace weatherstation
             {
                 Console.WriteLine(i + 1 + " " + stadtemp[i]);
                 int tabort = Convert.ToInt32(Console.ReadLine());
-                stadtemp.RemoveAt(tabort);
-            }
-            
+                stadtemp.RemoveAt(tabort); //Tar bort temperatur och stad på given index
+            }  
         }
         public static void medelvärde()
         {
             if (temperatur.Count > 0)
             {
-                double average = temperatur.Average(); //.Average tar medelvärdet
+                double average = temperatur.Average(); //.Average tar medelvärdet i listan
                 Console.WriteLine("Medelvärdet för alla städer i listan är: ");
                 Console.WriteLine(average);
             }
